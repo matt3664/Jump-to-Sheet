@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (count1 > 0 && count2 > 0) { // Only show the message if both counts are greater than 0
             statusMessage.style.visibility = "visible";
             if (count1 === count2) {
-                statusMessage.textContent = "Number of sheet numbers are equal to number of links.";
+                statusMessage.textContent = "Number of sheet numbers is equal to number of links.";
                 statusMessage.style.color = "#4CAF50";
             } else {
-                statusMessage.textContent = "Number of sheet numbers are not equal to number of links.";
+                statusMessage.textContent = "Number of sheet numbers is not equal to number of links.";
                 statusMessage.style.color = "lightcoral";
             }
         } else {
