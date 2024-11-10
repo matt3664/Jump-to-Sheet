@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Extension</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            text-align: left;
+            width: 750px;
+            height: 100vh;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* Header container holding the title and the toggle/message group */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Right container for toggle and instructions */
+        .toggle-instructions-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 66%;
+            gap: 20px;
+            font-size: 16px;
+        }
+
+        /* Toggle group */
+        .toggle-group {
+            display: flex;
+            align-items: center;
+        }
+
+        /* New CSS for the toggle label */
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Adjust this value as needed */
+        }
+
+        .toggle-label span {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+        .switch input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Instructions text aligned to the right */
+        .instructions {
+            font-size: 14px;
+            color: #555;
+            margin-left: auto;
+        }
+
+        .text-area-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            height: calc(100% - 180px);
+        }
+
+        .text-area-wrapper-left {
+            width: 33.33%;
+        }
+
+        .text-area-wrapper-right {
+            width: 66.67%;
+        }
+
+        /* Label container adjusted for horizontal alignment */
+        .label-container {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .help-link {
+            font-size: 12px;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        #input-box-1,
+        #input-box-2 {
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: auto;
+            white-space: nowrap;
+        }
+
+        .text-area {
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        .line-count {
+            font-size: 12px;
+            color: #888;
+            text-align: left;
+            margin-top: 4px;
+        }
+
+        .status-container {
+            margin-top: 60px;
+            text-align: right;
+        }
+
+        .status-message {
+            font-size: 14px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <!-- Left title container -->
+        <div class="title-container">
+            <div class="title">Jump to Sheet</div>
+        </div>
+
+        <!-- Right container with toggle group and instructions -->
+        <div class="toggle-instructions-container">
+            <!-- Toggle Group -->
+            <div class="toggle-group">
+                <label class="toggle-label">
+                    <span>Enable Extension</span>
+                    <div class="switch">
+                        <input type="checkbox" id="toggle-switch">
+                        <span class="slider"></span>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Instructions aligned to the right -->
+            <div class="instructions">Reload the page after enabling/disabling</div>
+        </div>
+    </div>
+
+    <div class="text-area-container">
+        <!-- Sheet Numbers Label (without help link) -->
+        <div class="text-area-wrapper text-area-wrapper-left">
+            <div class="label-container">
+                <span>Sheet Numbers</span>
+            </div>
+            <textarea class="text-area" id="input-box-1" placeholder="Paste Sheet Numbers Here"></textarea>
+            <div class="line-count" id="line-count-1">0 lines</div>
+        </div>
+
+        <!-- Links Label with Help Link Aligned Right -->
+        <div class="text-area-wrapper text-area-wrapper-right">
+            <div class="label-container">
+                <span>Links</span>
+                <a href="#" id="links-help" class="help-link">How to add sheet numbers and links</a>
+            </div>
+            <textarea class="text-area" id="input-box-2" placeholder="Paste Sheet Links Here"></textarea>
+            <div class="line-count" id="line-count-2">0 lines</div>
+        </div>
+    </div>
+
+    <div class="status-container">
+        <div class="status-message" id="status-message"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
