@@ -4,7 +4,7 @@ This extension allows the user to jump from plansheet to plansheet in Autodesk B
 
 ## Installation
 
-1. **Go to top of page. Select "Code" and then "Download Zip".**
+1. **Go to the top of this page. Select "Code" and then "Download Zip".**
 
 ![Description of Image](InstallImages/InstallPhotoStep1.png)
 
