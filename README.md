@@ -4,6 +4,10 @@ This extension allows the user to jump from plansheet to plansheet in Autodesk B
 
 ![Description of Image](InstallImages/ExtensionFunctionExample.png)
 
+## Security
+
+This extension operates entirely on the user's device which means all stored data (the plan sheet numbers and links) remains private and inaccessible. The extension does not transmit or receive any data over the internet.
+
 ## Installation
 
 1. **Go to the top of this page. Select "Code" and then "Download Zip".**
