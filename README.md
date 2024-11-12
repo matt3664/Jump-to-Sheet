@@ -1,16 +1,10 @@
 # Jump to Sheet
 
-This extension allows the user to jump from plansheet to plansheet in Autodesk Build using only sheet numbers. It does this by adding an input box to the bottom right of the Autodesk Build viewer. Setup takes 10 to 15 minutes.
-
-![Description of Image](InstallImages/ExtensionFunctionExample.png)
-
-## Security
-
-This extension operates entirely on the user's device which means all stored data (the plan sheet numbers and links) remains private and inaccessible. The extension does not transmit or receive any data over the internet.
+This extension allows the user to jump from plansheet to plansheet in Autodesk Build using only the sheet numbers. 
 
 ## Installation
 
-1. **Go to the top of this page. Select "Code" and then "Download Zip".**
+1. **Go to top of page. Select "Code" and then "Download Zip".**
 
 ![Description of Image](InstallImages/InstallPhotoStep1.png)
 
